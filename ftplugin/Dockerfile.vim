@@ -4,6 +4,19 @@ setlocal commentstring=#\ %s
 " Enable automatic comment insertion
 setlocal formatoptions+=cro
 
+# Column mode
+setlocal cuc
+
+# Autoindent
+setlocal ai
+
+# tabs 2
+setlocal shiftwidth=2 
+setlocal tabstop=2
+
+# Tabs to spaces
+setlocal expandtab
+
 function! DockerfileReplaceInstruction(original, replacement)
     let syn = synIDtrans(synID(line("."), col(".") - 1, 0))
     if syn != hlID("Comment") && syn != hlID("Constant") && strlen(getline(".")) == 0
